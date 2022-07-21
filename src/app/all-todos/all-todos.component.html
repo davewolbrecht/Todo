@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+
+    <div class="col-auto">
+        <h3>Todo List</h3>
+        <h5>A place to store your todos</h5>
+        <table class="table">
+            <thead class="thead-dark">
+                <th scope="col">Task</th>
+                <th scope="col">Status</th>
+            </thead>
+            <tr *ngFor="let todo of todos" app-todo [todo]="todo" (addNewTodo)="addNewTodo">
+            </tr>
+            <tr><span *ngIf="allTodosComplete">All task completed</span></tr>
+            <tr>
+                <td colspan="2">
+                    <form #myForm="ngForm" (ngSubmit)="addNewTodo()" novalidate>
+                        <div class="form-group">
+                          <label for="name">Task:</label>
+                          <input name="name" [(ngModel)]="newTodo.task" required #name="ngModel" class="form-control" id="name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add New Todo</button>
+                      </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+    <td>{{todo.task}}</td>
+    <td><!-- <input class="form-check-input" type="checkbox" *ngIf="todo.completed" value="{{todo.completed}}" id="flexCheckDefault" [(ngModel)]="todo.completed"
+        [ngModelOptions]="{standalone: true}">  -->
+        <span *ngIf="todo.completed">Completed</span>
+        <!-- <button class="btn btn-success"  (click)="completeTask()" *ngIf="!todo.completed">Complete</button> -->
+        <form #myForm="ngForm" (ngSubmit)="completeTask()" novalidate *ngIf="!todo.completed">
+            <button type="submit" class="btn btn-primary">Complete</button>
+        </form>
+    </td>
+    
